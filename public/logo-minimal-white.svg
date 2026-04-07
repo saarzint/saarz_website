@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 50" fill="none">
+  <defs>
+    <linearGradient id="mwg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9b4dff"/>
+      <stop offset="100%" stop-color="#5bc0ff"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M22,10 C10,10 4,16 4,22 C4,28 10,31 20,31 C30,31 36,34 36,40 C36,46 30,52 18,52"
+        stroke="url(#mwg)" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+  <text x="56" y="38" font-family="'Inter', system-ui, sans-serif" font-weight="700" font-size="30" letter-spacing="1.5" fill="#ffffff">saarz</text>
+</svg>

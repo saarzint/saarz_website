@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <defs>
+    <linearGradient id="mig" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7d25cd"/>
+      <stop offset="100%" stop-color="#3caefc"/>
+    </linearGradient>
+  </defs>
+  <path d="M22,6 C13,6 6,10 6,16 C6,22 13,25 20,25 C27,25 34,28 34,34 C34,40 27,44 18,44"
+        stroke="url(#mig)" stroke-width="5" stroke-linecap="round" fill="none"
+        transform="translate(0,-5)"/>
+</svg>

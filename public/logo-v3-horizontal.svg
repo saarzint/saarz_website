@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 80" fill="none">
+  <defs>
+    <linearGradient id="v3g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7d25cd"/>
+      <stop offset="60%" stop-color="#3caefc"/>
+    </linearGradient>
+  </defs>
+
+  <!-- S mark: Two parallel diagonal lines forming abstract S -->
+  <g transform="translate(36, 40)">
+    <!-- Top-right stroke -->
+    <path d="M14,-26 C14,-26 -16,-26 -16,-10 C-16,0 0,4 12,8"
+          stroke="url(#v3g)" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <!-- Bottom-left stroke -->
+    <path d="M-12,-8 C0,-4 16,0 16,10 C16,26 -14,26 -14,26"
+          stroke="url(#v3g)" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <!-- Accent dot -->
+    <circle cx="18" cy="-26" r="4" fill="#3caefc"/>
+  </g>
+
+  <!-- Wordmark: bold with accent slash -->
+  <text x="82" y="37" font-family="'Inter', 'SF Pro Display', system-ui, sans-serif" font-weight="800" font-size="40" letter-spacing="1" fill="#0b0e19">SAARZ</text>
+  <!-- Gradient slash separator -->
+  <line x1="238" y1="14" x2="248" y2="55" stroke="url(#v3g)" stroke-width="3" stroke-linecap="round"/>
+  <!-- Subtitle after slash -->
+  <text x="260" y="42" font-family="'Inter', 'SF Pro Display', system-ui, sans-serif" font-weight="600" font-size="15" fill="#737373">Int.</text>
+</svg>

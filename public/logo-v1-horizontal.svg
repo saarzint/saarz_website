@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" fill="none">
+  <defs>
+    <linearGradient id="v1g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7d25cd"/>
+      <stop offset="100%" stop-color="#3caefc"/>
+    </linearGradient>
+  </defs>
+
+  <!-- S Mark: Bold geometric S built from two offset arcs -->
+  <g transform="translate(40, 40)">
+    <!-- Upper arc -->
+    <path d="M-18,-8 C-18,-22 -8,-28 4,-28 C16,-28 24,-22 24,-14 C24,-8 18,-4 8,-4"
+          stroke="url(#v1g)" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <!-- Lower arc -->
+    <path d="M-8,4 C-18,4 -24,8 -24,14 C-24,22 -16,28 -4,28 C8,28 18,22 18,8"
+          stroke="url(#v1g)" stroke-width="7" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="80" y="34" font-family="'Inter', 'SF Pro Display', system-ui, sans-serif" font-weight="800" font-size="36" letter-spacing="2" fill="#0b0e19">SAARZ</text>
+  <!-- Subtitle -->
+  <text x="82" y="56" font-family="'Inter', 'SF Pro Display', system-ui, sans-serif" font-weight="500" font-size="12" letter-spacing="5.5" fill="#7d25cd">INTERNATIONAL</text>
+</svg>

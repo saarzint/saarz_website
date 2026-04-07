@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" fill="none">
+  <defs>
+    <linearGradient id="v1sg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7d25cd"/>
+      <stop offset="100%" stop-color="#3caefc"/>
+    </linearGradient>
+  </defs>
+
+  <!-- S Mark centered -->
+  <g transform="translate(100, 55)">
+    <path d="M-22,-10 C-22,-28 -10,-35 5,-35 C20,-35 30,-28 30,-18 C30,-10 22,-5 10,-5"
+          stroke="url(#v1sg)" stroke-width="8.5" stroke-linecap="round" fill="none"/>
+    <path d="M-10,5 C-22,5 -30,10 -30,18 C-30,28 -20,35 -5,35 C10,35 22,28 22,10"
+          stroke="url(#v1sg)" stroke-width="8.5" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="100" y="120" text-anchor="middle" font-family="'Inter', 'SF Pro Display', system-ui, sans-serif" font-weight="800" font-size="30" letter-spacing="4" fill="#0b0e19">SAARZ</text>
+  <text x="100" y="142" text-anchor="middle" font-family="'Inter', 'SF Pro Display', system-ui, sans-serif" font-weight="500" font-size="10" letter-spacing="5" fill="#7d25cd">INTERNATIONAL</text>
+</svg>

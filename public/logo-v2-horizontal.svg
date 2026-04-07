@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" fill="none">
+  <defs>
+    <linearGradient id="v2g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7d25cd"/>
+      <stop offset="100%" stop-color="#3caefc"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Contained S mark in rounded square -->
+  <rect x="4" y="4" width="72" height="72" rx="16" fill="url(#v2g)"/>
+
+  <!-- White S inside -->
+  <g transform="translate(40, 40)">
+    <path d="M-14,-6 C-14,-18 -6,-23 4,-23 C14,-23 19,-17 19,-12 C19,-7 14,-4 6,-4"
+          stroke="white" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+    <path d="M-6,4 C-14,4 -19,7 -19,12 C-19,17 -14,23 -4,23 C6,23 14,18 14,6"
+          stroke="white" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="96" y="36" font-family="'Inter', 'SF Pro Display', system-ui, sans-serif" font-weight="800" font-size="38" letter-spacing="1.5" fill="#0b0e19">SAARZ</text>
+  <text x="98" y="58" font-family="'Inter', 'SF Pro Display', system-ui, sans-serif" font-weight="500" font-size="12" letter-spacing="5.5" fill="#737373">INTERNATIONAL</text>
+</svg>

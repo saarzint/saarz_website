@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7d25cd"/>
+      <stop offset="50%" stop-color="#667eea"/>
+      <stop offset="100%" stop-color="#3caefc"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9b4dff"/>
+      <stop offset="100%" stop-color="#2a9df4"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer rounded square -->
+  <rect x="2" y="2" width="76" height="76" rx="20" fill="url(#g1)"/>
+  <!-- Inner dark -->
+  <rect x="5" y="5" width="70" height="70" rx="17" fill="#0b0e19"/>
+
+  <!-- S letterform -->
+  <g transform="translate(40, 40)">
+    <path d="M16,-22 C16,-22 8,-28 -4,-28 C-16,-28 -22,-20 -22,-14 C-22,-8 -18,-4 -8,-2"
+          stroke="url(#g2)" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M-8,-2 L8,2"
+          stroke="url(#g2)" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M8,2 C18,4 22,8 22,14 C22,20 16,28 4,28 C-8,28 -16,22 -16,22"
+          stroke="url(#g2)" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+    <!-- Terminal dots -->
+    <circle cx="16" cy="-22" r="3.5" fill="#3caefc"/>
+    <circle cx="-16" cy="22" r="3.5" fill="#7d25cd"/>
+
+    <!-- Orbit ring -->
+    <ellipse cx="0" cy="0" rx="28" ry="12"
+             stroke="url(#g1)" stroke-width="0.8" stroke-dasharray="3,4"
+             fill="none" opacity="0.35" transform="rotate(-25)"/>
+  </g>
+
+  <!-- Shine -->
+  <rect x="5" y="5" width="70" height="70" rx="17" fill="url(#g3)"/>
+</svg>
