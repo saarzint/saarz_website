@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SAARZ International — Website
+
+The official website for **SAARZ International**, a digital solutions company specializing in web development, mobile apps, AI solutions, and cloud infrastructure.
+
+Built with Next.js 16, TypeScript, Tailwind CSS, and Framer Motion.
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router, Turbopack)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Animation:** Framer Motion
+- **Icons:** Lucide React
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies and run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Build for production |
+| `npm run start` | Start the production server |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/                  # Next.js App Router pages
+│   ├── about/
+│   ├── blog/
+│   ├── careers/
+│   ├── contact/
+│   ├── our-team/
+│   ├── our-work/
+│   ├── services/
+│   │   └── [slug]/       # Dynamic service detail pages
+│   ├── layout.tsx
+│   └── page.tsx          # Home page
+├── components/
+│   ├── layout/           # Navbar, Footer
+│   ├── sections/         # Home page sections (Hero, Partners, etc.)
+│   └── ui/               # Reusable UI components
+└── data/
+    └── site-data.ts      # Centralized site content
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Home** — Hero, partners, services preview, testimonials, CTA
+- **About** — Company story, core values, stats
+- **Services** — All service categories + dynamic detail pages
+- **Our Work** — Portfolio with filtering and lightbox
+- **Our Team** — Team member profiles
+- **Blog** — Article listings
+- **Contact** — Contact form with validation
+- **Careers** — Job listings with application dialogs
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deploy easily on [Vercel](https://vercel.com/new).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+```
+
+## License
+
+© SAARZ International. All rights reserved.
