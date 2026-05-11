@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Libre_Franklin } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 
 const libreFranklin = Libre_Franklin({
   variable: "--font-libre-franklin",
@@ -25,11 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${libreFranklin.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-sans">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </body>
+      <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>
   );
 }

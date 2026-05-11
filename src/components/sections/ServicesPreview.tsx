@@ -1,13 +1,21 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { services } from "@/data/site-data";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ServiceCard from "@/components/ui/ServiceCard";
 import Button from "@/components/ui/Button";
 import DashedBorder from "@/components/ui/DashedBorder";
 
-export default function ServicesPreview() {
+interface Props {
+  services: Array<{
+    slug: string;
+    title: string;
+    description: string;
+    icon: string;
+    image: string;
+  }>;
+}
+
+export default function ServicesPreview({ services }: Props) {
   const featured = services.slice(0, 6);
 
   return (

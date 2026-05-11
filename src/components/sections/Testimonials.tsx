@@ -2,13 +2,21 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { testimonials } from "@/data/site-data";
 import SectionHeading from "@/components/ui/SectionHeading";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import DashedBorder from "@/components/ui/DashedBorder";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function Testimonials() {
+interface Props {
+  testimonials: Array<{
+    name: string;
+    text: string;
+    rating: number;
+    image: string;
+  }>;
+}
+
+export default function Testimonials({ testimonials }: Props) {
   const [page, setPage] = useState(0);
   const perPage = 2;
   const totalPages = Math.ceil(testimonials.length / perPage);
@@ -45,36 +53,37 @@ export default function Testimonials() {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Navigation */}
-              <div className="flex justify-center items-center gap-4 mt-10">
-                <button
-                  onClick={() =>
-                    setPage((p) => (p - 1 + totalPages) % totalPages)
-                  }
-                  className="w-10 h-10 rounded-full border-2 border-[#e5e5e5] flex items-center justify-center hover:border-[#7d25cd] hover:text-[#7d25cd] transition-colors cursor-pointer bg-white"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <div className="flex gap-2">
-                  {Array.from({ length: totalPages }).map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setPage(i)}
-                      className={`w-3 h-3 rounded-full transition-all cursor-pointer ${
-                        i === page
-                          ? "bg-[#7d25cd] w-8"
-                          : "bg-[#d4d4d4] hover:bg-[#a3a3a3]"
-                      }`}
-                    />
-                  ))}
+              {totalPages > 1 && (
+                <div className="flex justify-center items-center gap-4 mt-10">
+                  <button
+                    onClick={() =>
+                      setPage((p) => (p - 1 + totalPages) % totalPages)
+                    }
+                    className="w-10 h-10 rounded-full border-2 border-[#e5e5e5] flex items-center justify-center hover:border-[#7d25cd] hover:text-[#7d25cd] transition-colors cursor-pointer bg-white"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <div className="flex gap-2">
+                    {Array.from({ length: totalPages }).map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setPage(i)}
+                        className={`w-3 h-3 rounded-full transition-all cursor-pointer ${
+                          i === page
+                            ? "bg-[#7d25cd] w-8"
+                            : "bg-[#d4d4d4] hover:bg-[#a3a3a3]"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => setPage((p) => (p + 1) % totalPages)}
+                    className="w-10 h-10 rounded-full border-2 border-[#e5e5e5] flex items-center justify-center hover:border-[#7d25cd] hover:text-[#7d25cd] transition-colors cursor-pointer bg-white"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
                 </div>
-                <button
-                  onClick={() => setPage((p) => (p + 1) % totalPages)}
-                  className="w-10 h-10 rounded-full border-2 border-[#e5e5e5] flex items-center justify-center hover:border-[#7d25cd] hover:text-[#7d25cd] transition-colors cursor-pointer bg-white"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
+              )}
             </div>
           </div>
         </div>
