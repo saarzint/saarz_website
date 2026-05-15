@@ -35,7 +35,7 @@ export default function TestimonialCard({
       </p>
       <div className="flex items-center gap-4 mt-6 pt-6 border-t border-[#e5e5e5]">
         <div className="relative w-11 h-11 rounded-full overflow-hidden ring-2 ring-[#e5e5e5]">
-          <Image src={image} alt={name} fill className="object-cover" />
+          <Image src={image} alt={name} fill sizes="44px" className="object-cover" />
         </div>
         <div>
           <p className="font-semibold text-[#0b0e19] text-sm">{name}</p>

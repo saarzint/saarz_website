@@ -46,6 +46,7 @@ export default function ProjectForm({ project }: Props) {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
+    const safeImages = images.filter(Boolean);
     const technologies = techStr
       .split(",")
       .map((t) => t.trim())
@@ -57,7 +58,7 @@ export default function ProjectForm({ project }: Props) {
         name,
         category,
         description,
-        images,
+        images: safeImages,
         technologies,
         url,
         sortOrder: Number(sortOrder),

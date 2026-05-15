@@ -4,8 +4,9 @@ import { createSupabaseServerClient } from "./supabase/server";
 export async function requireAdmin() {
   const supabase = await createSupabaseServerClient();
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) throw new Error("Unauthorized");
-  return user;
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  if (!session?.user) throw new Error("Unauthorized");
+  return session.user;
 }

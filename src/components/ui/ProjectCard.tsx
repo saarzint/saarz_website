@@ -22,6 +22,8 @@ export default function ProjectCard({
   technologies,
   index,
 }: ProjectCardProps) {
+  const safeImages = images.filter(Boolean);
+  const primaryImage = safeImages[0] ?? "";
   const [isOpen, setIsOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
 
@@ -37,12 +39,26 @@ export default function ProjectCard({
       >
         <div className="relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-white border border-gray-100">
           <div className="relative h-64 overflow-hidden">
-            <Image
-              src={images[0]}
-              alt={name}
-              fill
-              className="object-cover group-hover:scale-110 transition-transform duration-700"
-            />
+            {primaryImage ? (
+              <Image
+                src={primaryImage}
+                alt={name}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#f4f4f8] to-[#ece7f8] text-center px-6">
+                <div>
+                  <p className="text-sm font-semibold text-[#7d25cd] uppercase tracking-wider">
+                    No Preview Image
+                  </p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    Project details only
+                  </p>
+                </div>
+              </div>
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
               <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
                 <Eye className="w-6 h-6 text-white" />
@@ -74,11 +90,11 @@ export default function ProjectCard({
       {/* Lightbox Modal */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 pt-20"
           onClick={() => setIsOpen(false)}
         >
           <div
-            className="relative bg-white rounded-2xl overflow-hidden max-w-4xl w-full max-h-[85vh] shadow-2xl"
+            className="relative bg-white rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] shadow-2xl flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -87,19 +103,33 @@ export default function ProjectCard({
             >
               <X className="w-5 h-5" />
             </button>
-            <div className="relative h-[50vh] md:h-[60vh] bg-gray-100">
-              <Image
-                src={images[currentImage]}
-                alt={`${name} - ${currentImage + 1}`}
-                fill
-                className="object-contain"
-              />
-              {images.length > 1 && (
+            <div className="relative h-[50vh] md:h-[40vh] bg-gray-100 flex-shrink-0">
+              {safeImages.length > 0 ? (
+                <Image
+                  src={safeImages[currentImage]}
+                  alt={`${name} - ${currentImage + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 90vw, 80vw"
+                  className="object-contain"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center text-center px-6">
+                  <div>
+                    <p className="text-lg font-semibold text-gray-700">
+                      No preview image available
+                    </p>
+                    <p className="text-sm text-gray-500 mt-2">
+                      This project has text details only.
+                    </p>
+                  </div>
+                </div>
+              )}
+              {safeImages.length > 1 && (
                 <>
                   <button
                     onClick={() =>
                       setCurrentImage(
-                        (prev) => (prev - 1 + images.length) % images.length
+                        (prev) => (prev - 1 + safeImages.length) % safeImages.length
                       )
                     }
                     className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/60 transition-colors"
@@ -108,9 +138,7 @@ export default function ProjectCard({
                   </button>
                   <button
                     onClick={() =>
-                      setCurrentImage(
-                        (prev) => (prev + 1) % images.length
-                      )
+                      setCurrentImage((prev) => (prev + 1) % safeImages.length)
                     }
                     className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/60 transition-colors"
                   >
@@ -119,7 +147,7 @@ export default function ProjectCard({
                 </>
               )}
             </div>
-            <div className="p-6">
+            <div className="p-6 overflow-y-auto flex-1">
               <span className="text-sm font-semibold text-[#7d25cd]">
                 {category}
               </span>
@@ -137,9 +165,9 @@ export default function ProjectCard({
                   </span>
                 ))}
               </div>
-              {images.length > 1 && (
+              {safeImages.length > 1 && (
                 <div className="flex gap-2 mt-4">
-                  {images.map((_, i) => (
+                  {safeImages.map((_, i) => (
                     <button
                       key={i}
                       onClick={() => setCurrentImage(i)}

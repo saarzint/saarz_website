@@ -384,7 +384,7 @@ export const blogPosts = [
     author: "SAARZ Team",
     date: "2024-10-10",
     readTime: 10,
-    image: "/pics/blog-images/blog03.jpg",
+    image: "/pics/blog_3.png",
     tags: ["Cloud", "DevOps", "Optimization"],
   },
 ];

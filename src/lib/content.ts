@@ -12,6 +12,14 @@ const DB_CONFIGURED =
   !!process.env.DATABASE_URL &&
   !process.env.DATABASE_URL.includes("placeholder");
 
+function normalizeBlogImage(image?: string | null) {
+  if (!image || image === "/pics/blog-images/blog03.jpg") {
+    return "/pics/blog_3.png";
+  }
+
+  return image;
+}
+
 // ─── Services ──
 export const getServices = cache(
   async () => {
@@ -151,7 +159,7 @@ export const getBlogPosts = cache(
         author: r.author,
         date: (r.publishedAt ?? r.createdAt).toISOString(),
         readTime: r.readTime,
-        image: r.coverImage || "/pics/blog-images/blog01.jpg",
+        image: normalizeBlogImage(r.coverImage),
         tags: r.tags,
       }));
     } catch {
