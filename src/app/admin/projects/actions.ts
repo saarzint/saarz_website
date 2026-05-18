@@ -119,7 +119,7 @@ export async function saveProject(data: ProjectFormData) {
   }
 
   updateTag("projects");
-  revalidatePath("/work");
+  revalidatePath("/our-work");
   revalidatePath("/admin/projects");
   redirect("/admin/projects");
 }
@@ -129,6 +129,6 @@ export async function deleteProject(id: string) {
   await db.delete(schema.projects).where(eq(schema.projects.id, id));
   await compactProjectOrder();
   updateTag("projects");
-  revalidatePath("/work");
+  revalidatePath("/our-work");
   revalidatePath("/admin/projects");
 }
