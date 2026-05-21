@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import ProjectCard from "@/components/ui/ProjectCard";
 import PageHero from "@/components/ui/PageHero";
 import DashedBorder from "@/components/ui/DashedBorder";
+import { categoryKey, normalizeCategory } from "@/lib/utils";
 
 interface Project {
   id: string | number;
@@ -22,13 +23,22 @@ interface OurWorkClientProps {
 export default function OurWorkClient({ projects }: OurWorkClientProps) {
   const categories = [
     "All",
-    ...Array.from(new Set(projects.map((p) => p.category))),
+    ...Array.from(
+      new Map(
+        projects.map((project) => [
+          categoryKey(project.category),
+          normalizeCategory(project.category),
+        ])
+      ).values()
+    ),
   ];
 
   const [active, setActive] = useState("All");
 
   const filtered =
-    active === "All" ? projects : projects.filter((p) => p.category === active);
+    active === "All"
+      ? projects
+      : projects.filter((p) => categoryKey(p.category) === categoryKey(active));
 
   return (
     <>

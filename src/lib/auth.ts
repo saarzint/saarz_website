@@ -6,6 +6,7 @@ export async function requireAdmin() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
+
   if (!user) throw new Error("Unauthorized");
   return user;
 }
