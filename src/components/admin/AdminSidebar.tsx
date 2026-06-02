@@ -13,6 +13,7 @@ import {
   UserPlus,
   Settings,
   LogOut,
+  Inbox,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -24,6 +25,7 @@ const navItems = [
   { href: "/admin/team", label: "Team", icon: Users },
   { href: "/admin/testimonials", label: "Testimonials", icon: MessageSquare },
   { href: "/admin/jobs", label: "Jobs", icon: UserPlus },
+  { href: "/admin/contacts", label: "Contacts", icon: Inbox },
   { href: "/admin/settings", label: "Settings", icon: Settings },
 ];
 

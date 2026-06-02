@@ -28,6 +28,7 @@ export default function Footer() {
                     src="/pics/01/S-logo1.png"
                     alt="SAARZ Int."
                     fill
+                    sizes="130px"
                     className="object-contain brightness-0 invert"
                   />
                 </Link>

@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useTransition } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import DashedBorder from "@/components/ui/DashedBorder";
+import { submitContactForm } from "./actions";
 
 interface ContactInfo {
   email: string;
@@ -25,15 +26,30 @@ export default function ContactClient({ contact }: ContactClientProps) {
     subject: "",
     message: "",
   });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
-    "idle"
-  );
+  const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isPending, startTransition] = useTransition();
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = (e: { preventDefault(): void }) => {
     e.preventDefault();
-    setStatus("sending");
-    // Simulate send
-    setTimeout(() => setStatus("sent"), 1500);
+    setErrorMessage("");
+    setStatus("idle");
+    startTransition(async () => {
+      const result = await submitContactForm(formState);
+      if ("error" in result) {
+        setStatus("error");
+        setErrorMessage(result.error);
+      } else {
+        setStatus("sent");
+        setFormState({
+          fullName: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      }
+    });
   };
 
   return (
@@ -262,10 +278,10 @@ export default function ContactClient({ contact }: ContactClientProps) {
                       </div>
                       <button
                         type="submit"
-                        disabled={status === "sending"}
+                        disabled={isPending}
                         className="mt-6 w-full btn-gradient text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                       >
-                        {status === "sending" ? (
+                        {isPending ? (
                           <>
                             <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                             Sending...
@@ -277,6 +293,11 @@ export default function ContactClient({ contact }: ContactClientProps) {
                           </>
                         )}
                       </button>
+                      {status === "error" && (
+                        <p className="mt-3 text-sm text-red-600 text-center">
+                          {errorMessage}
+                        </p>
+                      )}
                     </form>
                   )}
                 </motion.div>
