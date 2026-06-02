@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getProjects } from "@/lib/content";
 import OurWorkClient from "./OurWorkClient";
 
