@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getSiteSettings } from "@/lib/content";
 import ContactClient from "./ContactClient";
 

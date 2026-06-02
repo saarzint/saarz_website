@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getJobs } from "@/lib/content";
 import CareersClient, { type CareersJob } from "./CareersClient";
 
