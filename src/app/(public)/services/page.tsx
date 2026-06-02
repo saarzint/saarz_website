@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getServices } from "@/lib/content";
 import ServiceCard from "@/components/ui/ServiceCard";
 import CTASection from "@/components/sections/CTASection";
