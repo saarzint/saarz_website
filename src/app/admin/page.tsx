@@ -9,11 +9,12 @@ import {
   Users,
   MessageSquare,
   UserPlus,
+  Inbox,
 } from "lucide-react";
 
 async function getCounts() {
   try {
-    // Single round-trip — much faster than 6 separate count queries via the pooler.
+    // Single round-trip — much faster than separate count queries via the pooler.
     const [row] = await db.execute<{
       posts: number;
       services: number;
@@ -21,6 +22,7 @@ async function getCounts() {
       team: number;
       testimonials: number;
       jobs: number;
+      contacts: number;
     }>(sql`
       SELECT
         (SELECT count(*)::int FROM blog_posts) AS posts,
@@ -28,7 +30,8 @@ async function getCounts() {
         (SELECT count(*)::int FROM projects) AS projects,
         (SELECT count(*)::int FROM team_members) AS team,
         (SELECT count(*)::int FROM testimonials) AS testimonials,
-        (SELECT count(*)::int FROM jobs) AS jobs
+        (SELECT count(*)::int FROM jobs) AS jobs,
+        (SELECT count(*)::int FROM contact_submissions) AS contacts
     `);
     return row;
   } catch {
@@ -76,6 +79,12 @@ export default async function AdminDashboardPage() {
           value: counts.jobs,
           icon: UserPlus,
           href: "/admin/jobs",
+        },
+        {
+          label: "Contact Messages",
+          value: counts.contacts,
+          icon: Inbox,
+          href: "/admin/contacts",
         },
       ]
     : null;
